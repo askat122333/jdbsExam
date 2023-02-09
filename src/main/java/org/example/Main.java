@@ -7,7 +7,7 @@ public class Main {
    private static  final String USER = "postgres";
    private static final String PASSWORD = "postgres";
     public static void main(String[] args) {
-//        addCompany(67L,"HI");
+        addCompany(7L,"asdaI");
         showPassenger(1L);
     }
     public static void showPassenger(Long id) {
@@ -53,14 +53,9 @@ public class Main {
             preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setLong(1,id);
             preparedStatement.setString(2,name);
-            int resultSet = preparedStatement.executeUpdate(sql);
-//            while (){
-////                Long CompanyId = resultSet.getLong("id");
-////                String CompanyName = resultSet.getString("name");
-////                System.out.println("id : " + CompanyId);
-////                System.out.println("Name :" + CompanyName);
-//            }
-
+            int resultSet = preparedStatement.executeUpdate();
+            System.out.println(resultSet);
+            System.out.println("Company added");
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }
